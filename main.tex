@@ -528,6 +528,35 @@ o = Like f, but creates a new window to display file-buffer (dired-find-file-oth
 v = View file described on the current line, with view mode (dired-view-fie) (read only).
 \\
 $^$ = Visit the parent directory of (dired-up-directory).
+\\
+Instead of flagging a file with "D": you can mark the file (usually with *)
+\\
+Most Dired commands to operate on files are marked with a *
+\\
+The \underline{Only} command to operate on flagged files is x = to delete them.
+\\
+m = mark a file
+\\
+* m = Mark the current file with a *
+\\
+If the region is active, mark all files in the region instead.
+If n = int, mark next n files (-n means to go back to previous n files).
+\\
+If subdirectory is marked, all files in subdirectories are \underline{marked}.
+\\
+
+* * = Mark all executable files with * (dired-mark-executables) (With a numeric argument, unmark all files).
+\\
+* @ = Mark all symbolic links with * (dired-mark-symlinks) (with a num arg, unmark all files).
+\\
+* $/$ = Mark with * all directories except . and .. (dired-mark-directories) (With a num arg, unmark all files).
+\\
+* s = Mark all files in current subdirectory, besides ., .. (dired-mark-subdir-files).
+\\
+* U = Remove any mark on this line (dired-unmark) If region is active, unmark all files in the region instead (else if a numeric argument n is supplied, unmark the next n files instead starting with current file -- go backwards if n is -).
+\\
+* $<DEL>$ = Move point to previous line and remove any mark on that line. (dired-unmark-backward). If the region is active, unmark all files in region instead; othersise, if a num arg is supplied: unmark the n preceding files if n is negative, go backwards.
+
 
 
 \end{document}
