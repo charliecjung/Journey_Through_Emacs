@@ -469,5 +469,66 @@ set theme permissions in emacs init:
 (load-theme 'misterioso)
 \\
 \includegraphics[width=\linewidth]{installpackages.png}
+\section{Dired Navigation:}
+Enter Dired for local directory:
+\\
+C-x d(dired)
+\\
+Use M-x dired to go into dired mode
+\\
+n/C-n/SPC = Will move down to the next line.
+\\
+p/C-p/Del = Will move up to the previous line.
+\\
+j = goto a file (dired-goto-file).
+\\
+M-s f C-s (dired-isearch-filenames) = forward incremental search in dired buffer.
+\\
+M-s f M-C-s (dired-isearch-filenames-regexp) = same as above but for reg exp.
+\\
+d = Flag this file for deletion (dired-flag-file-deletion).
+\\
+u = Remove deletion flag (dired-unmark).
+\\
+$<DEL>$ = Move point to previous line and remove the deletion flag on that line. (dired-unmark-backward).
+\\
+x = delete flags flagged for deletion (dired-do-flagged-delete).
+\\
+\Program{%
+   \CodeComment{//Dired is on a sort of \underline{safe mode}}
+   \\
+   \> Try out ...
+   \\
+   \> dired-recursive-deletes $\rightarrow$ non-nil.
+   \\
+   \> delete-by-moving-to-trash $\rightarrow$ t.
+}
+\underline{Flagging many files at once:}
+\# = Flag all auto-save files (files ending with \#) for deletion.
+\\
+- = Flag all backup(files with -) for deletion.
+\\
+. (Period) = Flag all excess numeric backup files for deletion.
+\\
+Oldest/newest backup files are exempt but everything in the middle is flagged.
+\\
+$% &$ = flag for deletion all files with certain kinds of names which suggest you could easily create those files again.
+\\
+$% d regexp <RET> $ = flag for deletion all files whose names match regexp.
+\\
+\underline{Visiting Files in Dired:}
+\\
+f = visit file described on current line (C-x C-f $<fileName>$) (dired-find-file).
+$<RET>$
+\\
+e = equivalent to f.
+\\
+o = Like f, but creates a new window to display file-buffer (dired-find-file-other-window).
+\\
+v = View file described on the current line, with view mode (dired-view-fie) (read only).
+\\
+$^$ = Visit the parent directory of (dired-up-directory).
+
+
 \end{document}
 
